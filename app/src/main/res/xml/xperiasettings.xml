@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <PreferenceCategory android:title="@string/button">
+
+        <CheckBoxPreference
+            android:icon="@drawable/ic_settings_home"
+            android:title="@string/navigation_bar_show_tittle"
+            android:key="navigation_bar_show_key" />
+
+        <Preference
+            android:icon="@drawable/ic_mipop"
+            android:title="@string/mipop"
+            android:key="mipop">
+            <intent android:action="com.android.settings.MIPOP" />
+        </Preference>
+
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="Misc" >
+
+        <ListPreference
+            android:icon="@drawable/ic_display"
+            android:defaultValue="0"
+            android:entries="@array/dpi_switch_entries"
+            android:entryValues="@array/dpi_switch_values"
+            android:title="Display Density"
+            android:key="density_key" />
+
+        <ListPreference
+            android:icon="@drawable/ic_default_camera"
+            android:defaultValue="0"
+            android:entries="@array/camera_switch_entries"
+            android:entryValues="@array/camera_switch_values"
+            android:title="@string/camera_switch_tittle"
+            android:key="camera_switch_key" />
+
+        <Preference
+            android:icon="@drawable/ic_viper"
+            android:title="@string/v4a"
+            android:key="v4a" >
+            <intent android:action="com.android.settings.VIPER" />
+        </Preference>
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="System" >
+
+        <Preference
+            android:title="@string/supersu_tittle"
+            android:icon="@drawable/ic_su">
+            <intent
+                android:targetPackage="eu.chainfire.supersu"
+                android:action="android.intent.action.MAIN"
+                android:targetClass="eu.chainfire.supersu.MainActivity" />
+        </Preference>
+
+        <Preference
+            android:title="@string/performance_tittle"
+            android:icon="@drawable/ic_performance">
+            <intent
+                android:targetPackage="com.brewcrewfoo.performance"
+                android:targetClass="com.brewcrewfoo.performance.activities.MainActivity"/>
+        </Preference>
+
+    </PreferenceCategory>
+
+    <Preference
+        android:icon="@drawable/ic_about"
+        android:summary="© 2015 Xperia MIUI Tools | Powered by imanesaurus"
+        android:title="@string/about_title" >
+        <intent
+            android:action="android.intent.action.VIEW"
+            android:data="http://plus.google.com/+imanesaurus" />
+    </Preference>>
+
+</PreferenceScreen>

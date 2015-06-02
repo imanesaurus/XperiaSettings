@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="camera_switch_entries">
+        <item>CyanogenMod Camera</item>
+        <item>Nubia Camera</item>
+    </string-array>
+    <string-array name="camera_switch_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
+    <string-array name="dpi_switch_entries">
+        <item>260</item>
+        <item>280</item>
+        <item>300</item>
+        <item>320</item>
+        <item>340</item>
+    </string-array>
+    <string-array name="dpi_switch_values">
+        <item>-2</item>
+        <item>-1</item>
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+
+</resources>
