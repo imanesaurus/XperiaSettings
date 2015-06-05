@@ -11,17 +11,25 @@
     </string-array>
     <string-array name="dpi_switch_entries">
         <item>260</item>
+        <item>270</item>
         <item>280</item>
+        <item>290</item>
         <item>300</item>
+        <item>310</item>
         <item>320</item>
+        <item>330</item>
         <item>340</item>
     </string-array>
     <string-array name="dpi_switch_values">
+        <item>-4</item>
+        <item>-3</item>
         <item>-2</item>
         <item>-1</item>
         <item>0</item>
         <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
     </string-array>
 
 </resources>

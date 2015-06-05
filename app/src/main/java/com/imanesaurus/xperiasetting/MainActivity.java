@@ -9,7 +9,6 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceScreen;
 import android.widget.Toast;
-
 import miui.app.ActionBar;
 import miui.preference.PreferenceActivity;
 
@@ -47,7 +46,9 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
         //Show pref screen refer to Patchrom PORT_PRODUCT
         //noinspection AccessStaticViaInstance
         if (!this.DEV.equals("huashan_imanesaurus")) {
-            getPreferenceScreen().removeAll();
+            getPreferenceScreen().removeAll(); {
+                Toast.makeText(getApplicationContext(), R.string.device_spec_error, Toast.LENGTH_LONG).show();
+            }
         }
     }
 
@@ -64,15 +65,23 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
             }
         }
         if (mListPreference == mDensity) {
-            if (-2 == Integer.parseInt(mListPreference.getValue())){
+            if (-4 == Integer.parseInt(mListPreference.getValue())){
                 mListPreference.setSummary(R.string.density_switch_260_summary);
-            } else if (-1 == Integer.parseInt(mListPreference.getValue())) {
+            } else if (-3 == Integer.parseInt(mListPreference.getValue())) {
+                mListPreference.setSummary(R.string.density_switch_270_summary);
+            } else if (-2 == Integer.parseInt(mListPreference.getValue())) {
                 mListPreference.setSummary(R.string.density_switch_280_summary);
+            } else if (-1 == Integer.parseInt(mListPreference.getValue())) {
+                mListPreference.setSummary(R.string.density_switch_290_summary);
             } else if (0 == Integer.parseInt(mListPreference.getValue())) {
                 mListPreference.setSummary(R.string.density_switch_300_summary);
             } else if (1 == Integer.parseInt(mListPreference.getValue())) {
-                mListPreference.setSummary(R.string.density_switch_320_summary);
+                mListPreference.setSummary(R.string.density_switch_310_summary);
             } else if (2 == Integer.parseInt(mListPreference.getValue())) {
+                mListPreference.setSummary(R.string.density_switch_320_summary);
+            } else if (3 == Integer.parseInt(mListPreference.getValue())) {
+                mListPreference.setSummary(R.string.density_switch_330_summary);
+            } else if (4 == Integer.parseInt(mListPreference.getValue())) {
                 mListPreference.setSummary(R.string.density_switch_340_summary);
             }
         }
@@ -109,23 +118,39 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
             mDensity.setValue(ValueDensityChange);
             int mode = Integer.parseInt(ValueDensityChange);
             switch (mode) {
-                case -2:
+                case -4:
                     preference.setSummary(R.string.density_switch_260_summary);
                     RootCmd.RunRootCmd("setprop persist.miui.density 260");
                     break;
-                case -1:
+                case -3:
+                    preference.setSummary(R.string.density_switch_270_summary);
+                    RootCmd.RunRootCmd("setprop persist.miui.density 270");
+                    break;
+                case -2:
                     preference.setSummary(R.string.density_switch_280_summary);
                     RootCmd.RunRootCmd("setprop persist.miui.density 280");
+                    break;
+                case -1:
+                    preference.setSummary(R.string.density_switch_290_summary);
+                    RootCmd.RunRootCmd("setprop persist.miui.density 290");
                     break;
                 case 0:
                     preference.setSummary(R.string.density_switch_300_summary);
                     RootCmd.RunRootCmd("setprop persist.miui.density 300");
                     break;
                 case 1:
+                    preference.setSummary(R.string.density_switch_310_summary);
+                    RootCmd.RunRootCmd("setprop persist.miui.density 310");
+                    break;
+                case 2:
                     preference.setSummary(R.string.density_switch_320_summary);
                     RootCmd.RunRootCmd("setprop persist.miui.density 320");
                     break;
-                case 2:
+                case 3:
+                    preference.setSummary(R.string.density_switch_330_summary);
+                    RootCmd.RunRootCmd("setprop persist.miui.density 330");
+                    break;
+                case 4:
                     preference.setSummary(R.string.density_switch_340_summary);
                     RootCmd.RunRootCmd("setprop persist.miui.density 340");
                     break;
@@ -144,11 +169,11 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
             if (mNavigationBarShow.isChecked()) {
                 DialogReboot();
                 RootCmd.RunRootCmd("setprop qemu.hw.mainkeys 1");
-                return true;
+                return false;
             } else {
                 DialogReboot();
                 RootCmd.RunRootCmd("setprop qemu.hw.mainkeys 0");
-                return true;
+                return false;
             }
         }
         return false;
