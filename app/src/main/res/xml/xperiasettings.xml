@@ -68,11 +68,9 @@
 
     <Preference
         android:icon="@drawable/ic_about"
-        android:summary="© 2015 Xperia MIUI Tools | Powered by imanesaurus"
+        android:key="about_window_key"
+        android:summary="@string/about_summary"
         android:title="@string/about_title" >
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="http://plus.google.com/+imanesaurus" />
     </Preference>>
 
 </PreferenceScreen>

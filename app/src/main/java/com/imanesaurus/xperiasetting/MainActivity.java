@@ -2,6 +2,7 @@ package com.imanesaurus.xperiasetting;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.SystemProperties;
 import android.preference.CheckBoxPreference;
@@ -18,10 +19,10 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
     private static final String NAVIGATION_BAR_SHOW = "navigation_bar_show_key";
     private static final String CAMERA_SWITCH = "camera_switch_key";
     private static final String DENSITY_SWITCH = "density_key";
+    private static final String ABOUT_WINDOW = "about_window_key";
     private ListPreference mCameraSwitch;
     private CheckBoxPreference mNavigationBarShow;
     private ListPreference mDensity;
-
 
     @SuppressWarnings("deprecation")
     @Override
@@ -50,6 +51,16 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
                 Toast.makeText(getApplicationContext(), R.string.device_spec_error, Toast.LENGTH_LONG).show();
             }
         }
+
+        //start popup window activity
+        Preference mAboutWindow = findPreference(ABOUT_WINDOW);
+        mAboutWindow.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+            @Override
+            public boolean onPreferenceClick(Preference preference) {
+                startActivity(new Intent(MainActivity.this,AboutWindowPop.class));
+                return true;
+            }
+        });
     }
 
     private void initStyle() {
@@ -167,16 +178,36 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
     public boolean onPreferenceTreeClick(PreferenceScreen preferenceScreen, Preference preference) {
         if (preference == mNavigationBarShow) {
             if (mNavigationBarShow.isChecked()) {
-                DialogReboot();
-                RootCmd.RunRootCmd("setprop qemu.hw.mainkeys 1");
-                return false;
+                RootCmd.RunRootCmd("mount -o remount,rw /system");
+                RootCmd.RunRootCmd("busybox sed -i 's/qemu.hw.mainkeys=.*/qemu.hw.mainkeys=1/g' /system/build.prop");
+                DialogRestart();
             } else {
-                DialogReboot();
-                RootCmd.RunRootCmd("setprop qemu.hw.mainkeys 0");
-                return false;
+                RootCmd.RunRootCmd("mount -o remount,rw /system");
+                RootCmd.RunRootCmd("busybox sed -i 's/qemu.hw.mainkeys=.*/qemu.hw.mainkeys=0/g' /system/build.prop");
+                DialogRestart();
             }
         }
         return false;
+    }
+
+    private void DialogRestart() {
+        new AlertDialog.Builder(this)
+                .setMessage(R.string.dialog_message)
+                .setTitle(R.string.dialog_restart)
+                .setPositiveButton(R.string.dialog_yes, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        RootCmd.RunRootCmd("reboot");
+                    }
+                })
+                .setNeutralButton(R.string.dialog_no, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getApplicationContext(), R.string.dialog_reboot, Toast.LENGTH_LONG).show();
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     public void DialogReboot() {
