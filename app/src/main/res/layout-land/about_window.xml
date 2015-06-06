@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffffff">
+
+    <ImageView
+        android:id="@+id/gp_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/gplus_lg"
+        android:layout_alignTop="@+id/twit_logo"
+        android:layout_toStartOf="@+id/twit_logo" />
+
+    <ImageView
+        android:id="@+id/pay_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/pay_lg"
+        android:layout_below="@+id/donattext"
+        android:layout_alignEnd="@+id/thankyoutext"
+        android:layout_marginEnd="63dp" />
+
+    <ImageView
+        android:id="@+id/git_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/git_lg"
+        android:clickable="true"
+        android:layout_alignTop="@+id/textView"
+        android:layout_alignStart="@+id/pay_logo" />
+
+    <ImageView
+        android:id="@+id/fb_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/fb_lg"
+        android:layout_alignTop="@+id/git_logo"
+        android:layout_toEndOf="@+id/git_logo" />
+
+    <ImageView
+        android:id="@+id/twit_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/twit_lg"
+        android:layout_alignTop="@+id/git_logo"
+        android:layout_toStartOf="@+id/git_logo" />
+
+    <ImageView
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:id="@+id/my_icon"
+        android:background="@drawable/imanesaurus_lg"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/about_summary_text1"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:id="@+id/textView"
+        android:text="@string/about_summary"
+        android:textColor="#ffaaaaaa"
+        android:textStyle="bold"
+        android:layout_alignWithParentIfMissing="false"
+        android:autoText="false"
+        android:layout_below="@+id/my_icon"
+        android:layout_marginLeft="30dp"
+        android:layout_alignParentLeft="true"
+        android:layout_toStartOf="@+id/likethistext" />
+
+    <ImageView
+        android:id="@+id/xda_logo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:background="@drawable/xda_lg"
+        android:layout_alignBottom="@+id/fb_logo"
+        android:layout_toEndOf="@+id/fb_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/about_summary_text1"
+        android:id="@+id/about_summary_text1"
+        android:textStyle="bold|italic"
+        android:layout_alignWithParentIfMissing="false"
+        android:layout_below="@+id/textView"
+        android:layout_toStartOf="@+id/gp_logo"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="55dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/about_email_summary"
+        android:id="@+id/about_summary_text2"
+        android:textStyle="bold"
+        android:layout_below="@+id/about_summary_text1"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/about_summary_text3"
+        android:id="@+id/thankyoutext"
+        android:textColor="#ffff8158"
+        android:textStyle="bold"
+        android:layout_marginStart="81dp"
+        android:layout_alignTop="@+id/my_icon"
+        android:layout_toEndOf="@+id/about_summary_text2"
+        android:layout_marginTop="41dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/about_summary_text4"
+        android:id="@+id/likethistext"
+        android:textColor="#ffff8158"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_below="@+id/thankyoutext"
+        android:layout_alignEnd="@+id/xda_logo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/about_summary_text5"
+        android:id="@+id/donattext"
+        android:textColor="#ffff8158"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:layout_below="@+id/likethistext"
+        android:layout_alignStart="@+id/thankyoutext" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="@string/find_me_text"
+        android:id="@+id/find_me_text"
+        android:textStyle="bold"
+        android:layout_above="@+id/git_logo"
+        android:layout_alignStart="@+id/git_logo" />
+
+</RelativeLayout>
