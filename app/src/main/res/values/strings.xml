@@ -32,8 +32,8 @@
     <string name="about_summary_text1">Powered by : imanesaurus</string>
     <string name="about_email_summary">(pirmansah.otoluwa@gmail.com)</string>
     <string name="about_summary_text3">Thank you for using this rom</string>
-    <string name="about_summary_text4">If you like this rom, feel free to buy me a cofee</string>
-    <string name="about_summary_text5">with click PayPal image below:</string>
+    <string name="about_summary_text4">If you like this rom, and wanna buy me a cofee</string>
+    <string name="about_summary_text5">Just click PayPal image below:</string>
     <string name="find_me_text">Find Me :</string>
     <string name="dialog_restart">Restart</string>
 </resources>
