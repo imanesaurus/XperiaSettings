@@ -44,14 +44,6 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
         mDensity.setOnPreferenceChangeListener(this);
         setListPreferenceSummary(mDensity);
 
-        //Show pref screen refer to Patchrom PORT_PRODUCT
-        //noinspection AccessStaticViaInstance
-        if (!this.DEV.equals("huashan_imanesaurus")) {
-            getPreferenceScreen().removeAll(); {
-                Toast.makeText(getApplicationContext(), R.string.device_spec_error, Toast.LENGTH_LONG).show();
-            }
-        }
-
         //start popup window activity
         Preference mAboutWindow = findPreference(ABOUT_WINDOW);
         mAboutWindow.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
@@ -61,6 +53,14 @@ public class MainActivity extends PreferenceActivity implements Preference.OnPre
                 return true;
             }
         });
+
+        //Show pref screen refer to Patchrom PORT_PRODUCT
+        //noinspection AccessStaticViaInstance
+        if (!this.DEV.equals("huashan_imanesaurus")) {
+            getPreferenceScreen().removeAll(); {
+                Toast.makeText(getApplicationContext(), R.string.device_spec_error, Toast.LENGTH_LONG).show();
+            }
+        }
     }
 
     private void initStyle() {
