@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">MIUI XPERIA Settings</string>
+    <string name="app_name">iMiui Settings</string>
     <string name="button">Buttons</string>
     <string name="navigation_bar_show_tittle">Disable Navigation Bar</string>
     <string name="camera_switch_tittle">Default Camera</string>
